@@ -1,10 +1,12 @@
 const porta = 3803
 const express = require('express')
 const app = express()
+const cors = require('cors');
 const bodyParser = require('body-parser')
 const database = require('./database')
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(cors());
 // METODOS GET
 app.get('/estabelecimentos', (req, res, next) => {
     res.send(database.getEstabelecimentos())
